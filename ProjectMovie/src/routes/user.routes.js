@@ -12,7 +12,7 @@ userRouter.post("/",addUser)
 userRouter.put("/:id",[checkExist(User)],updateUser)
 userRouter.delete("/:id",
     authenticate,
-    authorize,
+    authorize(['ADMIN','SUPER_ADMIN']),
     checkExist(User),removeUser)
 
 //

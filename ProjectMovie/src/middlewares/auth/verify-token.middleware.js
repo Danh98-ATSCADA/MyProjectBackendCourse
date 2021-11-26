@@ -17,9 +17,9 @@ const authenticate = (req,res,next) => {
     }
 }
 
-const authorize = (req,res,next) => {
+const authorize = (arrayRole) =>(req,res,next) => {
     const {user} = req;
-    if(user.role ==="ADMIN"){
+    if(arrayRole.includes(user.role)){
         next()
     }
     else{
